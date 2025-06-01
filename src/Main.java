@@ -23,7 +23,6 @@ public class Main {
             String moneyStr;
             int money;
             switch (operation) {
-
                 case 1:
                     System.out.println("Введите сумму дохода:");
                     moneyStr = scanner.nextLine(); // Не используйте тут nextInt (!)
@@ -47,7 +46,7 @@ public class Main {
 
                     }else{
                         System.out.println("Мы советуем вам УСН доходы минус расходы");
-                        System.out.println("Ваш налог составит: "+ " Calck.taxEarningsMinusSpendings(earnings, spendings)" + " рублей");
+                        System.out.println("Ваш налог составит: "+ Calck.taxEarningsMinusSpendings(earnings, spendings) + " рублей");
                         System.out.println("Налог на другой системе:" + Calck.taxEarnings(earnings) + " рублей");
                         System.out.println("Экономия: " + Calck.ecoCalck(earnings, spendings) + " рублей");
 
