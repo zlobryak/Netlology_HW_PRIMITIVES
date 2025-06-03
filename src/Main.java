@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
-    public static void main(String[] args) {
+    public static void main() {
         Scanner scanner = new Scanner(System.in);
         int earnings = 0;    // доходы
         int spendings = 0;   // расходы
@@ -54,6 +53,7 @@ public class Main {
                             System.out.println("Налог на другой системе:" + taxEarnings + " рублей");
                             System.out.println("Экономия: " + Calck.ecoCalck(earnings, spendings) + " рублей");
                         } else{
+                            // В случае равенства налога в обоих системах
                             System.out.println("Можете выбрать любую систему налогообложения");
                         }
 
@@ -65,4 +65,3 @@ public class Main {
         }
         System.out.println("Программа завершена!");
     }
-}
