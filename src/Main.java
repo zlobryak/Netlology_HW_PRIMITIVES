@@ -46,10 +46,14 @@ public class Main {
                         System.out.println("Экономия: " + Calck.ecoCalck(earnings, spendings) + " рублей");
 
                     }else{
-                        System.out.println("Мы советуем вам УСН доходы минус расходы");
-                        System.out.println("Ваш налог составит: "+ " Calck.taxEarningsMinusSpendings(earnings, spendings)" + " рублей");
-                        System.out.println("Налог на другой системе:" + Calck.taxEarnings(earnings) + " рублей");
-                        System.out.println("Экономия: " + Calck.ecoCalck(earnings, spendings) + " рублей");
+                        if(Calck.taxEarnings(earnings) != Calck.taxEarningsMinusSpendings(earnings, spendings)) {
+                            System.out.println("Мы советуем вам УСН доходы минус расходы");
+                            System.out.println("Ваш налог составит: " + " Calck.taxEarningsMinusSpendings(earnings, spendings)" + " рублей");
+                            System.out.println("Налог на другой системе:" + Calck.taxEarnings(earnings) + " рублей");
+                            System.out.println("Экономия: " + Calck.ecoCalck(earnings, spendings) + " рублей");
+                        } else{
+                            System.out.println("Можете выбрать любую систему налогообложения");
+                        }
 
                     }
                     break;
