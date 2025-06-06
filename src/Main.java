@@ -40,18 +40,19 @@ import java.util.Scanner;
                     // действия при выборе третьей операции
                     int taxEarnings = Calck.taxEarnings(earnings);
                     int taxEarningsMinusSpendings = Calck.taxEarningsMinusSpendings(earnings, spendings);
+                    int taxEconomy = Calck.ecoCalck(taxEarnings, taxEarningsMinusSpendings);
                     if(taxEarnings < taxEarningsMinusSpendings) {
                         System.out.println("Мы советуем вам УСН доходы");
                         System.out.println("Ваш налог составит: " + taxEarnings + " рублей");
                         System.out.println("Налог на другой системе:" + taxEarningsMinusSpendings + " рублей");
-                        System.out.println("Экономия: " + Calck.ecoCalck(taxEarnings, taxEarningsMinusSpendings) + " рублей");
+                        System.out.println("Экономия: " + taxEconomy + " рублей");
 
                     }else{
                         if(taxEarnings != taxEarningsMinusSpendings) {
                             System.out.println("Мы советуем вам УСН доходы минус расходы");
                             System.out.println("Ваш налог составит: " + taxEarningsMinusSpendings + " рублей");
                             System.out.println("Налог на другой системе:" + taxEarnings + " рублей");
-                            System.out.println("Экономия: " + Calck.ecoCalck(taxEarnings, taxEarningsMinusSpendings) + " рублей");
+                            System.out.println("Экономия: " + taxEconomy + " рублей");
                         } else{
                             // В случае равенства налога в обоих системах
                             System.out.println("Можете выбрать любую систему налогообложения");
