@@ -4,7 +4,7 @@ public class Calck {
         tax = (earnings - spendings) * 15 / 100;
 
         //Информационное сообщение для вычисления количества вызовов
-        //System.out.println("Считаем налог на доходам");
+        System.out.println("Считаем налог на доходы минус расходы");
 
         if (tax >= 0) {
             return tax;
@@ -17,7 +17,7 @@ public class Calck {
         tax = earnings * 6 / 100;
 
         //Информационное сообщение для вычисления количества вызовов
-        //System.out.println("Считаем налог на доходам");
+        System.out.println("Считаем налог на доходы");
 
         if (tax >= 0) {
             return tax;
