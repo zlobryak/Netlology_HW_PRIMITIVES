@@ -44,14 +44,14 @@ import java.util.Scanner;
                         System.out.println("Мы советуем вам УСН доходы");
                         System.out.println("Ваш налог составит: " + taxEarnings + " рублей");
                         System.out.println("Налог на другой системе:" + taxEarningsMinusSpendings + " рублей");
-                        System.out.println("Экономия: " + Calck.ecoCalck(earnings, spendings) + " рублей");
+                        System.out.println("Экономия: " + Calck.ecoCalck(taxEarnings, taxEarningsMinusSpendings) + " рублей");
 
                     }else{
                         if(taxEarnings != taxEarningsMinusSpendings) {
                             System.out.println("Мы советуем вам УСН доходы минус расходы");
                             System.out.println("Ваш налог составит: " + taxEarningsMinusSpendings + " рублей");
                             System.out.println("Налог на другой системе:" + taxEarnings + " рублей");
-                            System.out.println("Экономия: " + Calck.ecoCalck(earnings, spendings) + " рублей");
+                            System.out.println("Экономия: " + Calck.ecoCalck(taxEarnings, taxEarningsMinusSpendings) + " рублей");
                         } else{
                             // В случае равенства налога в обоих системах
                             System.out.println("Можете выбрать любую систему налогообложения");
