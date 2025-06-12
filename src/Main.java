@@ -28,7 +28,7 @@ public class Main {
                     break;
                 case "2":
                     // действия при выборе второй операции
-                    System.out.println("Введите сумму дохода:");
+                    System.out.println("Введите сумму расхода:");
                     moneyStr = scanner.nextLine(); // Не используйте тут nextInt (!)
                     money = Integer.parseInt(moneyStr);
                     spendings += money;
@@ -41,7 +41,6 @@ public class Main {
                     if (taxEarnings < taxEarningsMinusSpendings) {
                         ShowMessage.usn(taxEarnings, taxEarningsMinusSpendings, taxEconomy);
 
-
                     } else {
                         if (taxEarnings != taxEarningsMinusSpendings) {
                             ShowMessage.earningsMinusSpendings(taxEarningsMinusSpendings, taxEarnings, taxEconomy);
@@ -50,7 +49,6 @@ public class Main {
                             // В случае равенства налога в обоих системах
                             System.out.println("Можете выбрать любую систему налогообложения");
                         }
-
                     }
                     break;
                 default:
