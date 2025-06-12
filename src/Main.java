@@ -1,59 +1,52 @@
 import java.util.Scanner;
 
-    public static void main() {
+public class Main {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int earnings = 0;    // доходы
         int spendings = 0;   // расходы
 
 //Цикл будет работать, пока пользователь не введет `end`
         while (true) {
-            // Выводим информацию о возможных операциях пользователю
-            System.out.println();
-            System.out.println("Выберите операцию и введите её номер:");
-            System.out.println("1. Добавить новый доход");
-            System.out.println("2. Добавить новый расход");
-            System.out.println("3. Выбрать систему налогообложения");
+            ShowMessage.choose(); // Выводим информацию о возможных операциях пользователю
 
             String input = scanner.nextLine();
-            if ("end".equals(input)) {
-                break;
-            }
-            int operation = Integer.parseInt(input);
+
             String moneyStr;
             int money;
-            switch (operation) {
+            switch (input) {
+                case "end":
+                    System.out.println("Программа завершена!");
+                    scanner.close();
+                    return;
 
-                case 1:
+                case "1":
                     System.out.println("Введите сумму дохода:");
                     moneyStr = scanner.nextLine(); // Не используйте тут nextInt (!)
                     money = Integer.parseInt(moneyStr);
                     earnings += money;
                     break;
-                case 2:
+                case "2":
                     // действия при выборе второй операции
                     System.out.println("Введите сумму дохода:");
                     moneyStr = scanner.nextLine(); // Не используйте тут nextInt (!)
                     money = Integer.parseInt(moneyStr);
                     spendings += money;
                     break;
-                case 3:
+                case "3":
                     // действия при выборе третьей операции
-                    int taxEarnings = Calck.taxEarnings(earnings);
-                    int taxEarningsMinusSpendings = Calck.taxEarningsMinusSpendings(earnings, spendings);
-                    int taxEconomy = Calck.ecoCalck(taxEarnings, taxEarningsMinusSpendings);
-                    if(taxEarnings < taxEarningsMinusSpendings) {
-                        System.out.println("Мы советуем вам УСН доходы");
-                        System.out.println("Ваш налог составит: " + taxEarnings + " рублей");
-                        System.out.println("Налог на другой системе:" + taxEarningsMinusSpendings + " рублей");
-                        System.out.println("Экономия: " + taxEconomy + " рублей");
+                    int taxEarnings = Calc.taxEarnings(earnings);
+                    int taxEarningsMinusSpendings = Calc.taxEarningsMinusSpendings(earnings, spendings);
+                    int taxEconomy = Calc.ecoCalck(taxEarnings, taxEarningsMinusSpendings);
+                    if (taxEarnings < taxEarningsMinusSpendings) {
+                        ShowMessage.usn(taxEarnings, taxEarningsMinusSpendings, taxEconomy);
 
-                    }else{
-                        if(taxEarnings != taxEarningsMinusSpendings) {
-                            System.out.println("Мы советуем вам УСН доходы минус расходы");
-                            System.out.println("Ваш налог составит: " + taxEarningsMinusSpendings + " рублей");
-                            System.out.println("Налог на другой системе:" + taxEarnings + " рублей");
-                            System.out.println("Экономия: " + taxEconomy + " рублей");
-                        } else{
+
+                    } else {
+                        if (taxEarnings != taxEarningsMinusSpendings) {
+                            ShowMessage.earningsMinusSpendings(taxEarningsMinusSpendings, taxEarnings, taxEconomy);
+
+                        } else {
                             // В случае равенства налога в обоих системах
                             System.out.println("Можете выбрать любую систему налогообложения");
                         }
@@ -64,5 +57,5 @@ import java.util.Scanner;
                     System.out.println("Такой операции нет");
             }
         }
-        System.out.println("Программа завершена!");
     }
+}

@@ -1,4 +1,4 @@
-public class Calck {
+public class Calc {
     public static int tax;
     public static int taxEarningsMinusSpendings(int earnings, int spendings) {
         tax = (earnings - spendings) * 15 / 100;
